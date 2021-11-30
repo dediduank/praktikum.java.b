@@ -5,6 +5,7 @@
 package ti.umy.praktikum.java.c;
 
 import java.util.ArrayList;
+import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,6 +49,18 @@ public class fileController {
         ArrayList<String> paket = new ArrayList<>();
         
         paket = serv.tabel(); //untuk mengisi arrayList lokal
+        
+        kurir.addAttribute("perkakas", paket); //proses mengirim data yang ada di arraylist
+        
+        return "viewData"; //Didalam tanda Petik adl nama file html
+    }
+    
+    @RequestMapping("/tampilkanall")
+    public String tampilarrayduaD(Model kurir){
+        
+        ArrayList<List<String>> paket = new ArrayList<>();
+        
+        paket = serv.mytable(); //untuk mengisi arrayList lokal
         
         kurir.addAttribute("perkakas", paket); //proses mengirim data yang ada di arraylist
         

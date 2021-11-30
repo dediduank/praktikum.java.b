@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ti.umy</groupId>
-	<artifactId>praktikum.java.c</artifactId>
+	<artifactId>praktikum.java.b</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>praktikum.java.c</name>
+	<name>praktikum.java.b</name>
 	<description>Access Data From Service Class </description>
 	<properties>
 		<java.version>11</java.version>

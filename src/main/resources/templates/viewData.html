@@ -13,9 +13,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <h1>My Data</h1>
         <hr>
         <table border="1">
-            <tr th:each="count,terimadata:${perkakas}">
-                <td th:text="${count.index}"></td>
-                <td th:text="${terimadata}"></td>
+            <tr th:each="terimadata:${perkakas}">
+                <td th:text="${terimadata[0]}"></td>
+                <td th:text="${terimadata[1]}"></td>
             </tr>
         </table>
     </body>
