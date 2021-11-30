@@ -6,6 +6,7 @@ package ti.umy.praktikum.java.c;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,10 +23,7 @@ import service.projectService;
 public class fileController {
     projectService serv = new projectService();
     
-    @RequestMapping("/")
-    public String viewIndex(){
-     return "index"; 
-    }
+   
     
     @RequestMapping("/hello")
     @ResponseBody
@@ -67,4 +65,31 @@ public class fileController {
         return "viewData"; //Didalam tanda Petik adl nama file html
     }
     
+    @RequestMapping("/viewdata")
+    @ResponseBody
+    public String getInput(HttpServletRequest data){
+        String variabel_dikirim = data.getParameter("vara"); //inisialisasi untuk menyimpan value yang dikirim dari halaman lain
+        return "Isi variabel dikirim adalah : " + variabel_dikirim;
+    }
+    
+    
+    public int jumlah(String nilai1, String nilai2){
+        int angka1 = Integer.parseInt(nilai1);
+        int angka2 = Integer.parseInt(nilai2);
+        return angka1 + angka2;
+    }
+    
+    @RequestMapping("/input")
+    public String countNumber(HttpServletRequest data, Model model){
+        String varA = data.getParameter("varA");
+        String varB = data.getParameter("varB");
+        
+        int result = jumlah(varA, varB);
+        
+        model.addAttribute("hasil", result);
+        model.addAttribute("angka1", varA);
+        model.addAttribute("angka2", varB);
+        
+        return "viewJumlah";
+    }
 }
